@@ -1,3 +1,5 @@
+PHP_SDK_VERSION := 4.2.7
+
 PLATFORM := $(shell uname -s)
 ARCH := $(shell uname -m)
 PHP_VERSION := $(shell php -r "echo PHP_VERSION;")
@@ -6,7 +8,7 @@ PHP_VERSION_FORMATTED := php$(PHP_MAJOR_MINOR)
 PHP_THREADSAFETY := $(shell php -r 'echo (PHP_ZTS ? "zts" : "nts");')
 PLATFORM_NORMALIZED := $(shell echo $(PLATFORM) | sed 's/Darwin/macos/' | tr '[:upper:]' '[:lower:]')
 
-DIST := couchbase-4.2.4-$(PHP_VERSION_FORMATTED)-$(PHP_THREADSAFETY)-$(PLATFORM_NORMALIZED)-$(ARCH)
+DIST := couchbase-$(PHP_SDK_VERSION)-$(PHP_VERSION_FORMATTED)-$(PHP_THREADSAFETY)-$(PLATFORM_NORMALIZED)-$(ARCH)
 TARBALL := $(DIST).tgz
 URL := https://packages.couchbase.com/clients/php/$(TARBALL)
 
